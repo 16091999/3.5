@@ -1,0 +1,33 @@
+.titulo{
+    font-size: 26px;
+    color: blue;
+}
+
+.botao{
+    padding: 10px;
+	width: 6%;
+	margin: 0 auto;
+	border-radius: 50px;
+	border: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: black;
+    background-color: #f7c04a;
+	cursor: pointer;
+}
+
+#quantidade{
+    width: 20%;
+	margin: 0 auto;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 50px;
+    border-color: #f7c04a;
+}
+
+#resultado{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+

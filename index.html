@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Megasena</title>
+</head>
+<body>
+
+<h3 class="titulo">Informe a quantidade de números a serem apostados na Megasena</h3>
+<input type="number" size="2" id="quantidade" />
+<input class="botao" type="button" value="Jogar" onclick="jogar()" size="20" />
+<p id="resultado"></p>
+
+
+
+
+<script>
+    
+const jogar = () => {
+  const quantidade = document.getElementById("quantidade");
+  const valor = parseInt(quantidade.value);
+  if(valor >= 6 && valor <= 15) {
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = gerarNumeros(valor);
+  } else {
+    alert("O número informado deve estar entre 6 e 15");
+  }
+}
+
+//----------------------------------------------------------------
+
+const gerarNumeros = quantidade => {
+  const volante = Array(quantidade);
+  volante.fill(0);
+  //-------------------------------------------------------------
+  volante.forEach((valor, indice) => {
+    let ok = false;
+    let numero = 0;
+    while(!ok) {
+      numero = Math.floor(Math.random() * 60 + 1);
+      ok = true;
+      volante.forEach(valor => {
+        if(valor === numero) {
+          ok = false;
+        }
+      });
+    }
+    volante[indice] = numero;
+  });
+  //-------------------------------------------------------------
+  const compareFn = (a, b) => (a - b);
+  volante.sort(compareFn);
+  return volante.join(" - ");
+}
+
+
+
+</script>    
+</body>
+
+</html>
